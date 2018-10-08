@@ -1,0 +1,10 @@
+En esta practica se elaboro el juego de la consola atari "Pong" para 2 jugadores.
+
+Para ejecutar solo ejecute el index.html, se requiere abrirlo en un buscador actualizado como google chrome y firefox.
+
+Los controles son:
+
+Flecha de arriba: Mueve la raqueta uno hacia arriba
+Flecha de abajo: Mueve la raqueta uno hacia abajo
+Tecla w: Mueve la raqueta dos hacia arriba
+Tecla s: Mueve la raqueta dos hacia abajo
