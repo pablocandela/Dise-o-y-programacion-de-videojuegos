@@ -8,4 +8,4 @@ Candela_Castellanos_Pablo_Antonio
 pabloantonio@ciencias.unam.mx
 
 ## Descripción ##
-La descripción del repositorio
+Practicas para el curso de diseño y programacion de videojuegos.
