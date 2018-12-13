@@ -112,14 +112,15 @@ var GameEngine = (function(GameEngine) {
       this.cameraTarget.rotation.y = this.mesh.rotation.y;
 
       this.mesh.moveWithCollisions(this.velocity);
-
+      
       if (this.inFloor) {
         this.velocity.y = Math.max(this.scene.gravity.y, this.velocity.y);
       }
 
       this.inFloor = false;
     }
-
+    
+    
   }
 
   GameEngine.Character2 = Character2;
