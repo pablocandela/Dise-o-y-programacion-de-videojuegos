@@ -10,6 +10,7 @@ var GameEngine = (function(GameEngine) {
       this.mesh.ellipsoid = new BABYLON.Vector3(1.1933/2, 1.6646/2, 1.0242/2);
       this.mesh.ellipsoidOffset = new BABYLON.Vector3(0, 1.6646/2, 0);
       this.mesh.position.y = 5;
+      this.lives = 3;
 
       this.weapon = scene.getMeshByName("Weapon");
       this.weapon.parent = this.mesh;
@@ -53,7 +54,7 @@ var GameEngine = (function(GameEngine) {
         if (this.state === "Idle") {
           this.scene.stopAnimation(this.skeleton);
           this.scene.beginAnimation(this.skeleton, this.walk_range.from, this.walk_range.to, true);
-          this.vr = 270;
+          this.rotation = 270 * PI_180;
           this.state = "Walk";
         }
         this.speed = 7;
@@ -61,7 +62,7 @@ var GameEngine = (function(GameEngine) {
         if (this.state === "Idle") {
           this.scene.stopAnimation(this.skeleton);
           this.scene.beginAnimation(this.skeleton, this.walk_range.from, this.walk_range.to, true);
-          this.vr = 90;
+          this.rotation = 90 * PI_180;
           this.state = "Walk";
         }
         this.speed = 7;
@@ -69,7 +70,7 @@ var GameEngine = (function(GameEngine) {
         if (this.state === "Idle") {
           this.scene.stopAnimation(this.skeleton);
           this.scene.beginAnimation(this.skeleton, this.walk_range.from, this.walk_range.to, true);
-          this.vr = 180;
+          this.rotation = 180 * PI_180;
           this.state = "Walk";
         }
         this.speed = 7;
@@ -77,7 +78,7 @@ var GameEngine = (function(GameEngine) {
         if (this.state === "Idle") {
           this.scene.stopAnimation(this.skeleton);
           this.scene.beginAnimation(this.skeleton, this.walk_range.from, this.walk_range.to, true);
-          this.vr = 0;
+          this.rotation = 0 * PI_180;
           this.state = "Walk";
         }
         this.speed = 7;
@@ -90,7 +91,6 @@ var GameEngine = (function(GameEngine) {
         this.speed = 0;
         this.velocity.x = 0;
         this.velocity.z = 0;
-        this.rotation = 0;
     }
 
     if ((this.state !== "Atack") && (keys["a"] || keys["A"])) {
@@ -103,7 +103,6 @@ var GameEngine = (function(GameEngine) {
     }
 
     update(elapsed) {
-      this.rotation += this.vr * PI_180;
       this.velocity.x = -Math.cos(this.rotation) * this.speed * elapsed;
       this.velocity.y += this.scene.gravity.y * elapsed;
       this.velocity.z =  Math.sin(this.rotation) * this.speed * elapsed;

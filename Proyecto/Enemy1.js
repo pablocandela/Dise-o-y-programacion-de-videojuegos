@@ -11,6 +11,8 @@ var GameEngine = (function(GameEngine) {
       this.mesh.position.x = x;
       this.mesh.position.y = y;
       this.mesh.position.z = z;
+      this.life = 1;
+      this.isAlive = true;
 
       // let debug_ellipsoid = BABYLON.MeshBuilder.CreateSphere("tmp_sphere", {diameterX: 0.911918, diameterY: 1.15347, diameterZ: 1.02883}, scene);
       // debug_ellipsoid.position.y = 1.15347/2;
@@ -24,7 +26,7 @@ var GameEngine = (function(GameEngine) {
 
       this.idle_range = this.skeleton.getAnimationRange("Idle");
       this.walk_range = this.skeleton.getAnimationRange("Walk");
-      
+
       this.state = "Idle";
 
       scene.beginAnimation(this.skeleton, this.idle_range.from, this.idle_range.to, true);
@@ -48,9 +50,22 @@ var GameEngine = (function(GameEngine) {
 
     }
 
+    displaceTo(v) {
+      this.mesh.moveWithCollisions(v);
+    }
+
+    hit() {
+        this.life -= 1;
+        if (this.life <= 0) {
+          this.isAlive = false;
+          this.mesh.isVisible = false;
+          this.mesh.checkCollisions = false;
+        }
+    }
+
     update(elapsed) {
       this.randomWalk();
-      
+
       this.velocity.x = -Math.cos(this.rotation) * this.speed * elapsed;
       this.velocity.y += this.scene.gravity.y * elapsed;
       this.velocity.z =  Math.sin(this.rotation) * this.speed * elapsed;

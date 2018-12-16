@@ -22,6 +22,8 @@ var GameEngine = (function(GameEngine) {
     var texture2 = new BABYLON.Texture("Puerta.jpg", this.scene);
     mat2.diffuseTexture = texture2;
 
+    this.advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI");
+
     var columns = 1;  // 6 columns
     var rows = 1;  // 4 rows
 
@@ -109,13 +111,22 @@ var GameEngine = (function(GameEngine) {
     this.inicialFrontal = -5.40;
     this.distaciaFrontal = 2.10;
     for(var i = 0; i < 6; i++){
+      //console.log(this.inicialFrontal + this.distaciaFrontal);
       this.box5 = BABYLON.MeshBuilder.CreateBox('pared5', options2, this.scene);
-      this.box5.material = mat;
-      this.box5.position.x = 9.00;
-      this.box5.position.y = 1.00;
-      this.box5.position.z = this.inicialFrontal - this.distaciaFrontal;
-      this.box5.checkCollisions = true;
-      this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
+      if(this.inicialFrontal + this.distaciaFrontal == -7.7){
+        this.box5.material = mat2;
+        this.box5.position.x = 9.00;
+        this.box5.position.y = 1.00;
+        this.box5.position.z = this.inicialFrontal - this.distaciaFrontal;
+        this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
+      }else{
+        this.box5.material = mat;
+        this.box5.position.x = 9.00;
+        this.box5.position.y = 1.00;
+        this.box5.position.z = this.inicialFrontal - this.distaciaFrontal;
+        this.box5.checkCollisions = true;
+        this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
+      }
     }
 
     this.inicialFrontal = 10.10;
@@ -307,19 +318,29 @@ var GameEngine = (function(GameEngine) {
     this.inicialFrontal = 5.20;
     this.distaciaFrontal = 2.10;
     for(var i = 0; i < 6; i++){
+      //console.log(this.inicialFrontal + this.distaciaFrontal);
       this.box17 = BABYLON.MeshBuilder.CreateBox('pared17', options2, this.scene);
-      this.box17.material = mat;
-      this.box17.position.x = 27.00;
-      this.box17.position.y = 1.00;
-      this.box17.position.z = this.inicialFrontal + this.distaciaFrontal;
-      this.box17.checkCollisions = true;
-      this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
+      if (this.inicialFrontal + this.distaciaFrontal == 13.6){
+        this.box17.material = mat2;
+        this.box17.position.x = 27.00;
+        this.box17.position.y = 1.00;
+        this.box17.position.z = this.inicialFrontal + this.distaciaFrontal;
+        this.box17.checkCollisions = false;
+        this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
+      }else {
+        this.box17.material = mat;
+        this.box17.position.x = 27.00;
+        this.box17.position.y = 1.00;
+        this.box17.position.z = this.inicialFrontal + this.distaciaFrontal;
+        this.box17.checkCollisions = true;
+        this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
+      }
     }
 
     this.inicialFrontal = 28.30;
     this.distaciaFrontal = 2.10;
     for(var i = 0; i < 9; i++){
-      console.log(this.inicialFrontal + this.distaciaFrontal);
+      //console.log(this.inicialFrontal + this.distaciaFrontal);
       this.box18 = BABYLON.MeshBuilder.CreateBox('pared18', options, this.scene);
       if (this.inicialFrontal + this.distaciaFrontal == 26.2){
         this.box18.material = mat2;
@@ -351,7 +372,7 @@ var GameEngine = (function(GameEngine) {
         this.box19.position.z = 6.20;
         this.box19.checkCollisions = false;
         this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
-      }else 
+      }else
         if (this.inicialFrontal + this.distaciaFrontal == 26.2){
           this.box19.material = mat2;
           this.box19.position.x = this.inicialFrontal - this.distaciaFrontal;
@@ -398,13 +419,23 @@ var GameEngine = (function(GameEngine) {
     this.inicialFrontal = 28.30;
     this.distaciaFrontal = 2.10;
     for(var i = 0; i < 9; i++){
-      this.box22 = BABYLON.MeshBuilder.CreateBox('pared22', options, this.scene);
-      this.box22.material = mat;
-      this.box22.position.x = this.inicialFrontal - this.distaciaFrontal;
-      this.box22.position.y = 1.00;
-      this.box22.position.z = -6.50;
-      this.box22.checkCollisions = true;
-      this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
+       //console.log(this.inicialFrontal + this.distaciaFrontal);
+       this.box22 = BABYLON.MeshBuilder.CreateBox('pared22', options, this.scene);
+       if (this.inicialFrontal + this.distaciaFrontal == 19.899999999999995){
+         this.box22.material = mat2;
+         this.box22.position.x = this.inicialFrontal - this.distaciaFrontal;
+         this.box22.position.y = 1.00;
+         this.box22.position.z = -6.50;
+         this.box22.checkCollisions = false;
+         this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
+       }else{
+        this.box22.material = mat;
+        this.box22.position.x = this.inicialFrontal - this.distaciaFrontal;
+        this.box22.position.y = 1.00;
+        this.box22.position.z = -6.50;
+        this.box22.checkCollisions = true;
+        this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
+      }
     }
 
     this.inicialFrontal = -5.40;
@@ -458,39 +489,28 @@ var GameEngine = (function(GameEngine) {
     this.inicialFrontal = 18.20;
     this.distaciaFrontal = 2.10;
     for(var i = 0; i < 6; i++){
+      //console.log(this.inicialFrontal + this.distaciaFrontal);
       this.box27 = BABYLON.MeshBuilder.CreateBox('pared27', options2, this.scene);
-      this.box27.material = mat;
-      this.box27.position.x = 27.00;
-      this.box27.position.y = 1.00;
-      this.box27.position.z = this.inicialFrontal + this.distaciaFrontal;
-      this.box27.checkCollisions = true;
-      this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
+      if (this.inicialFrontal + this.distaciaFrontal == 25){
+        this.box27.material = mat2;
+        this.box27.position.x = 27.00;
+        this.box27.position.y = 1.00;
+        this.box27.position.z = this.inicialFrontal + this.distaciaFrontal;
+        this.box27.checkCollisions = false;
+        this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
+      }else{
+        this.box27.material = mat;
+        this.box27.position.x = 27.00;
+        this.box27.position.y = 1.00;
+        this.box27.position.z = this.inicialFrontal + this.distaciaFrontal;
+        this.box27.checkCollisions = true;
+        this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
+      }
     }
 
-    this.inicialFrontal = 47.00;
-    this.distaciaFrontal = 2.10;
-    for(var i = 0; i < 9; i++){
-      this.box28 = BABYLON.MeshBuilder.CreateBox('pared28', options, this.scene);
-      this.box28.material = mat;
-      this.box28.position.x = this.inicialFrontal - this.distaciaFrontal;
-      this.box28.position.y = 1.00;
-      this.box28.position.z = 32.00;
-      this.box28.checkCollisions = true;
-      this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
-    }
+    
 
-    this.inicialFrontal = 18.20;
-    this.distaciaFrontal = 2.10;
-    for(var i = 0; i < 6; i++){
-      this.box29 = BABYLON.MeshBuilder.CreateBox('pared29', options2, this.scene);
-      this.box29.material = mat;
-      this.box29.position.x = 45.00;
-      this.box29.position.y = 1.00;
-      this.box29.position.z = this.inicialFrontal + this.distaciaFrontal;
-      this.box29.checkCollisions = true;
-      this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
-    }
-
+    
     this.inicialFrontal = 47.00;
     this.distaciaFrontal = 2.10;
     for(var i = 0; i < 9; i++){
@@ -506,13 +526,23 @@ var GameEngine = (function(GameEngine) {
     this.inicialFrontal = 47.00;
     this.distaciaFrontal = 2.10;
     for(var i = 0; i < 9; i++){
+      //console.log(this.inicialFrontal + this.distaciaFrontal);
       this.box31 = BABYLON.MeshBuilder.CreateBox('pared31', options, this.scene);
-      this.box31.material = mat;
-      this.box31.position.x = this.inicialFrontal - this.distaciaFrontal;
-      this.box31.position.y = 1.00;
-      this.box31.position.z = 6.20;
-      this.box31.checkCollisions = true;
-      this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
+      if (this.inicialFrontal + this.distaciaFrontal == 42.8){
+        this.box31.material = mat2;
+        this.box31.position.x = this.inicialFrontal - this.distaciaFrontal;
+        this.box31.position.y = 1.00;
+        this.box31.position.z = 6.20;
+        this.box31.checkCollisions = false;
+        this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
+      }else{
+        this.box31.material = mat;
+        this.box31.position.x = this.inicialFrontal - this.distaciaFrontal;
+        this.box31.position.y = 1.00;
+        this.box31.position.z = 6.20;
+        this.box31.checkCollisions = true;
+        this.inicialFrontal = this.inicialFrontal - this.distaciaFrontal;
+      }
     }
 
     this.inicialFrontal = 5.20;
@@ -543,13 +573,23 @@ var GameEngine = (function(GameEngine) {
     this.inicialFrontal = -7.20;
     this.distaciaFrontal = 2.10;
     for(var i = 0; i < 6; i++){
+      //console.log(this.inicialFrontal + this.distaciaFrontal);
       this.box34 = BABYLON.MeshBuilder.CreateBox('pared34', options2, this.scene);
-      this.box34.material = mat;
-      this.box34.position.x = 45.00;
-      this.box34.position.y = 1.00;
-      this.box34.position.z = this.inicialFrontal + this.distaciaFrontal;
-      this.box34.checkCollisions = true;
-      this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
+      if (this.inicialFrontal + this.distaciaFrontal == 1.2000000000000006){
+        this.box34.material = mat2;
+        this.box34.position.x = 45.00;
+        this.box34.position.y = 1.00;
+        this.box34.position.z = this.inicialFrontal + this.distaciaFrontal;
+        this.box34.checkCollisions = false;
+        this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
+      }else{
+        this.box34.material = mat;
+        this.box34.position.x = 45.00;
+        this.box34.position.y = 1.00;
+        this.box34.position.z = this.inicialFrontal + this.distaciaFrontal;
+        this.box34.checkCollisions = true;
+        this.inicialFrontal = this.inicialFrontal + this.distaciaFrontal;
+      }
     }
 
     this.inicialFrontal = 65.70;
@@ -623,6 +663,7 @@ var GameEngine = (function(GameEngine) {
       this.vectorPosicion = new BABYLON.Vector3(0,0,0);
 
       this.camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(0, 19, 10), this.scene);
+      this.music = new BABYLON.Sound("Musica", "57-Windmill.mp3", this.scene, null, { loop: true, autoplay: true });
       this.camera.setTarget(this.vectorPosicion);
       // https://doc.babylonjs.com/how_to/skybox
       //var skybox = BABYLON.MeshBuilder.CreateBox("SkyBox", {size:9600}, this.scene);
@@ -643,7 +684,7 @@ var GameEngine = (function(GameEngine) {
       //let shadowGenerator = new BABYLON.ShadowGenerator(1024, this.light);
 
 
-      this.ground = BABYLON.Mesh.CreateGround("Ground", 80,80, 2, this.scene);
+      this.ground = BABYLON.Mesh.CreateGround("Ground", 140,65, 2, this.scene);
       this.ground.material = new BABYLON.StandardMaterial("GroundMat", this.scene);
       //this.ground.material.diffuseColor = new BABYLON.Color3(0.3, 0.2, 0);
       this.ground.material.diffuseTexture = new BABYLON.Texture("Pared8.jpg");
@@ -676,6 +717,20 @@ var GameEngine = (function(GameEngine) {
           }
         )
       );
+
+      var l = 0;
+
+      for (var i = 0; i < this.character.lives; i++) {
+        var image = new BABYLON.GUI.Image("but", "heart.svg");
+        image.width = "30px";
+        image.height = "40px";
+        image.stretch = BABYLON.GUI.Image.STRETCH_NONE;
+        image.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+        image.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+        image.left = l;
+        this.advancedTexture.addControl(image);
+        l+= 40;
+      }
     }
 
     processInput() {
@@ -691,65 +746,109 @@ var GameEngine = (function(GameEngine) {
         if (this.ground.intersectsMesh(this.enemy1.mesh, false)) {
           this.enemy1.inFloor = true;
         }
-        this.enemy2.update(elapsed);
+        if (this.enemy2.isAlive) this.enemy2.update(elapsed);
         if (this.ground.intersectsMesh(this.enemy2.mesh, false)) {
           this.enemy2.inFloor = true;
         }
 
         this.character.update(elapsed);
-	if(this.character.mesh.position.z > -6.5 && this.character.mesh.position.z < 5.9 && this.character.mesh.position.x > -9.5&& this.character.mesh.position.x < 8){
-	  this.camera.position.z = 10;
-	  this.camera.position.x = 0;
-	} 
-	if(this.character.mesh.position.z < -7.0 && this.character.mesh.position.z > -18 && this.character.mesh.position.x > -9.5){
-	  this.camera.position.z = -3;
-	  this.camera.position.x = 0;
-	} 
-	if(this.character.mesh.position.x < -10 && this.character.mesh.position.x > -27 && this.character.mesh.position.z < -7.0 && 		  this.character.mesh.position.z > -18){
-	  this.camera.position.z = -3;
-	  this.camera.position.x = -20;
-	} 
-	
-	if(this.character.mesh.position.z > -5.9 && this.character.mesh.position.x < -10 && this.character.mesh.position.z < 6){
-	  this.camera.position.z = 10;
-	  this.camera.position.x = -20;
-	} 
-	
-	if(this.character.mesh.position.z > 6.4 && this.character.mesh.position.x < -10){
-	  this.camera.position.z = 23;
-	  this.camera.position.x = -20;
-	} 
-	
-	if(this.character.mesh.position.x > -8 && this.character.mesh.position.z > 6.4 && this.character.mesh.position.x < 8 ){
-	  this.camera.position.z = 23;
-	  this.camera.position.x = 0;
-  } 
-  if(this.character.mesh.position.x > 9 &&this.character.mesh.position.z < 18.5 && this.character.mesh.position.z > 6.4 && this.character.mesh.position.x < 18 ){
-	  this.camera.position.z = 23;
-    this.camera.position.x = 10;
-  } 
-  if(this.character.mesh.position.x > 9.8 && this.character.mesh.position.z < 5.8 && this.character.mesh.position.x < 17){
-	  this.camera.position.z = 10;
-    this.camera.position.x = 17;
-  } 
-
-  if(this.character.mesh.position.x > 19 && this.character.mesh.position.z < 18.5 && this.character.mesh.position.z > 5.8 && this.character.mesh.position.x < 26){
-	  this.camera.position.z = 23;
-    this.camera.position.x = 17;
-  } 
-
-  if(this.character.mesh.position.z > 19.5){
-	  this.camera.position.z = 35;
-    this.camera.position.x = 17;
-  } 
-	
-	
-		console.log(this.character.mesh.position.z);
+        //console.log(this.character.mesh.position.z);
         if (this.ground.intersectsMesh(this.character.mesh, false)) {
           this.character.inFloor = true;
         }
+
+        if (this.character.state === "Atack") {
+          if (this.character.weapon.intersectsMesh(this.enemy1.mesh, true)) {
+            this.enemy1.displaceTo(this.character.mesh.position.subtract(this.enemy1.mesh.position).normalize().multiplyByFloats(-5, -5, -5));
+            this.enemy1.hit();
+            //console.log("enemigo golpeado");
+          }
+        }
+
+        /////////
+        // AQUI SOLO REVISO LA COLISION DE LA ESPADA CON EL ENEMIGO QUE SIGUE AL PERSONAJE
+        // HAY QUE CHECAR LA COLISION CON TODOS LOS ENEMIGOS DEL JUEGO, LO MAS CONVENIENTE ES QUE LOS ENEMIGOS ESTEN EN UN ARREGLO E ITERAR PARA REVISAR LAS COLISIONES
+        //
+        // SE PUEDE CAMBIAR EL ESTADO AL ENEMIGO A "LASTIMADO" Y HACER ALGO CON ESA INFORMACION, POR EJEMPLO BAJAR SUS PUNTOS DE VIDA O MATARLO,
+        // EN ESTE EJEMPLO SOLO LO MUEVO 5 UNIDADES EN LA DIRECCION OPUESTA A LA QUE SE MUEVE
+        /////////
+        if (this.character.state === "Atack") {
+          if (this.character.weapon.intersectsMesh(this.enemy2.mesh, true)) {
+            this.enemy2.displaceTo(this.character.mesh.position.subtract(this.enemy2.mesh.position).normalize().multiplyByFloats(-5, -5, -5));
+            this.enemy2.hit();
+            //console.log("enemigo golpeado");
+          }
+        }
+        /////////
+
+        if(this.character.mesh.position.z > -6.5 && this.character.mesh.position.z < 5.9 && this.character.mesh.position.x > -9.5&& this.character.mesh.position.x < 8){
+          this.camera.position.z = 10;
+          this.camera.position.x = 0;
+        }
+  
+        if(this.character.mesh.position.z < -7.0 && this.character.mesh.position.z > -18 && this.character.mesh.position.x > -9.5 && this.character.mesh.position.x < 9.8){
+          this.camera.position.z = -3;
+          this.camera.position.x = 0;
+        }
+        if(this.character.mesh.position.x < -10 && this.character.mesh.position.x > -27 && this.character.mesh.position.z < -7.0 && 		  this.character.mesh.position.z > -18){
+          this.camera.position.z = -3;
+          this.camera.position.x = -20;
+        }
+
+        if(this.character.mesh.position.z > -5.9 && this.character.mesh.position.x < -10 && this.character.mesh.position.z < 6){
+          this.camera.position.z = 10;
+          this.camera.position.x = -20;
+        }
+
+        if(this.character.mesh.position.z > 6.4 && this.character.mesh.position.x < -10){
+          this.camera.position.z = 23;
+          this.camera.position.x = -20;
+        }
+
+        if(this.character.mesh.position.x > -8 && this.character.mesh.position.z > 6.4 && this.character.mesh.position.x < 8 ){
+          this.camera.position.z = 23;
+          this.camera.position.x = 0;
+        }
+        if(this.character.mesh.position.x > 9 &&this.character.mesh.position.z < 18.5 && this.character.mesh.position.z > 6.4 && this.character.mesh.position.x < 18 ){
+          this.camera.position.z = 23;
+          this.camera.position.x = 10;
+        }
+        if(this.character.mesh.position.x > 9.8 && this.character.mesh.position.z < 5.8 && this.character.mesh.position.x < 17){
+          this.camera.position.z = 10;
+          this.camera.position.x = 17;
+        }
+
+        if(this.character.mesh.position.x > 19 && this.character.mesh.position.z < 18.5 && this.character.mesh.position.z > 5.8 && this.character.mesh.position.x < 26){
+          this.camera.position.z = 23;
+          this.camera.position.x = 17;
+        }
+
+        if(this.character.mesh.position.z > 19.5){
+          this.camera.position.z = 35;
+          this.camera.position.x = 17;
+        }
+
+        if(this.character.mesh.position.x > 26.5){
+          this.camera.position.z = 23;
+          this.camera.position.x = 37;
+        }
+        if(this.character.mesh.position.z < -7.2 && this.character.mesh.position.z > -18 && this.character.mesh.position.x > 9.8 && this.character.mesh.position.x < 28){
+          this.camera.position.z = -3;
+          this.camera.position.x = 17;
+          
+        }
+        if(this.character.mesh.position.z < 6 && this.character.mesh.position.z > -6 && this.character.mesh.position.x > 25 && this.character.mesh.position.x < 44.4){
+          this.camera.position.z = 10;
+          this.camera.position.x = 37;
+        }
+        if(this.character.mesh.position.x > 44.5){
+          this.camera.position.z = 10;
+          this.camera.position.x = 55;
+        }
+       
+
     }
-	
+
   }
 
     render() {
