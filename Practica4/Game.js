@@ -28,7 +28,7 @@ var GameEngine = (function(GameEngine) {
       this.image = new Image();
       this.image.src = "images/p04_001.png";
 
-      this.player = new GameEngine.Player(2190, 850, 32, 32);
+      this.player = new GameEngine.Player(100, 2080, 30, 30);
       this.vidas = new GameEngine.Vidas();
       this.vidas2 = new GameEngine.Vidas2();
       this.enemigos.push (new GameEngine.jefe(3300,870, 16, 16)); 

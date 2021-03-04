@@ -31,7 +31,7 @@ var GameEngine = (function(GameEngine) {
         this.w_2 = w/2;
         this.h_2 = h/2+1;
   
-        this.speed = 100000;
+        this.speed = 10000;
         this.jump_heigth = 240;
         this.inFloor = false;
   

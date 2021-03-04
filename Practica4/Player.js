@@ -35,7 +35,7 @@ var GameEngine = (function(GameEngine) {
       this.vy = 0;
       this.canJump = true;
       this.tam = this.w;
-      this.vidas = 6;
+      this.vidas = 20;
 
       this.disp = 0 ;
       this.cronometro = 2;
